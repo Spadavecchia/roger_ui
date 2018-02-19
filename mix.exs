@@ -6,26 +6,42 @@ defmodule RogerUi.Mixfile do
       app: :roger_ui,
       version: "0.1.6",
       elixir: "~> 1.5",
-      elixirc_paths: ["lib"],
+      elixirc_paths: elixirc_paths(Mix.env()),
       package: package(),
       description: """
       Dashboard and monitoring tools for Roger job processing system
       """,
-      start_permanent: Mix.env == :prod,
-      deps: deps()
+      start_permanent: Mix.env() == :prod,
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [
+        coveralls: :test,
+        "coveralls.detail": :test,
+        "coveralls.post": :test,
+        "coveralls.html": :test
+      ],
+      deps: deps(),
+      aliases: aliases()
     ]
   end
 
   def package do
     [
-      files: ~w(lib test priv) ++
-             ~w(LICENSE mix.exs README.md),
+      files: ~w(lib test priv/static) ++ ~w(LICENSE mix.exs README.md),
       maintainers: ["Antonio Abella", "Paul Engel"],
       licenses: ["MIT"],
-      links: %{"Github" => "https://github.com/Spadavecchia/roger_ui"},
+      links: %{"Github" => "https://github.com/Spadavecchia/roger_ui"}
     ]
   end
 
+  defp aliases do
+    [
+      test: "test --no-start"
+    ]
+  end
+
+  # Specifies which paths to compile per environment
+  defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(_), do: ["lib"]
 
   # Run "mix help compile.app" to learn about applications.
   def application do
@@ -43,6 +59,8 @@ defmodule RogerUi.Mixfile do
       {:cowboy, "~> 1.0"},
       {:ex_doc, ">= 0.0.0", only: :dev},
       {:credo, ">= 0.0.0", only: :dev},
+      {:excoveralls, "~> 0.8", only: :test},
+      {:mox, "~> 0.3", only: :test}
     ]
   end
 end

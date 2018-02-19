@@ -5,8 +5,9 @@
       <b-navbar-brand href="#">Roger UI</b-navbar-brand>
       <b-collapse is-nav id="nav_collapse">
         <b-navbar-nav>
-          <b-nav-item href="#">Dashboard</b-nav-item>
-          <b-nav-item href="#/queues">All Queues</b-nav-item>
+          <b-nav-item :to="'Home'">Dashboard</b-nav-item>
+          <b-nav-item :to="'Queues'">Queues</b-nav-item>
+          <b-nav-item :to="'Jobs'">Running Jobs</b-nav-item>
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto">
           <!-- <b-button size="sm" class="my-2 my-sm-0" variant="primary" -->
