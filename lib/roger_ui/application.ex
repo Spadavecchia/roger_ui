@@ -1,7 +1,8 @@
 defmodule RogerUi.Application do
-  # See https://hexdocs.pm/elixir/Application.html
-  # for more information on OTP Applications
-  @moduledoc false
+  @moduledoc """
+  Roger UI's main OTP Application module. For more information on OTP Applications
+  See https://hexdocs.pm/elixir/Application.html
+  """
 
   alias Plug.Adapters.Cowboy
   alias RogerUi.Web.RouterPlug

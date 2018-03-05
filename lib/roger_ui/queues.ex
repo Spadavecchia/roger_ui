@@ -1,7 +1,23 @@
 defmodule RogerUi.Queues do
   @moduledoc """
-  Normalize queues from nodes
+  This module contains all transformations functions for normalize nodes data structures from Roger.Info.running_jobs() function in order to obtain queues:
+
+  Given a nested data structure, where each element contents nested items:
+    input = [
+      "server@127.0.0.1": %{
+        running: %{
+          "roger_test_partition_1" => %{
+            default: %{consumer_count: 1, max_workers: 10, message_count: 740, paused: false},
+            fast: %{consumer_count: 1, max_workers: 10, message_count: 740, paused: false},
+            other: %{consumer_count: 1, max_workers: 2, message_count: 0, paused: false}
+          }]
+
+  return a sorted Map with the following keys:
+  [
+  %{"partition_name" => "roger_partition_demo", "queue_name" => "roger_test_partition_1", "qualified_queue_name" => "roger_test_partition_1-default"}
+  }]
   """
+
   alias Roger.Queue
 
   def nodes_to_queues(nodes) do

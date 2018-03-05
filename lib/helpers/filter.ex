@@ -1,8 +1,8 @@
 defmodule RogerUi.Helpers.Filter do
   @moduledoc """
-  Take a enumeration and returns only filtered element
+  This module provides Roger UI helper functions. These functions take an enumeration and returns only those elements defined by a
+  field and a filter. Filter helper functions may be required by any module used by Roger UI. These functions are independents of business logic.
   """
-
   @spec call(
           xs :: Enumerable.t(),
           field :: String.t(),

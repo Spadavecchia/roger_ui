@@ -8,8 +8,8 @@ RogerUI allow you to see nodes, partitions and queues with various details level
 
 1.- Pull `develop` branch
 2.- `npm install; npm run build` inside `priv/vue`
-2.- Change `config.exs` on `roger_demo` to `config :roger_ui, :server, false` (now is using the server in host application)
-3.- Change `router.ex` on `roger_demo` adding this:
+3.- Change `config.exs` on `roger_demo` to `config :roger_ui, :server, false` (now is using the server in host application)
+4.- Change `router.ex` on `roger_demo` adding this:
 
 ```
   pipeline :roger do
@@ -23,4 +23,4 @@ RogerUI allow you to see nodes, partitions and queues with various details level
     forward "/", Router, namespace: "roger"
   end
 ```
-4.- Navigate to `http://localhost:4000/roger`
+4.- Navigate to `http://localhost:4040/roger`

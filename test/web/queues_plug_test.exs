@@ -1,4 +1,9 @@
 defmodule RogerUi.Web.QueuesPlugTest do
+  @moduledoc """
+  This module provides Roger UI test functions. It tests the behaviour
+  of RogerUi.Web.QueuesPlug.Router functions. This module includes
+  RogerUi.Tests.RogerApiInMemory functions, necessary to simulate Roger API responses.
+  """
   use ExUnit.Case, async: true
   use Plug.Test
   alias RogerUi.Web.QueuesPlug.Router

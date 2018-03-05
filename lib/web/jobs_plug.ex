@@ -1,6 +1,9 @@
 defmodule RogerUi.Web.JobsPlug do
   @moduledoc """
-  Endpoints to process jobs api calls
+  Handles endpoints for processing jobs API calls.
+
+  Jobs are managed in the UI trough API calls. These jobs are presented, filtred, canceled, among others operations
+  by handlers herein described with Plug.
   """
 
   require Logger

@@ -1,6 +1,6 @@
 defmodule RogerUi.RogerApi do
   @moduledoc """
-  Api to calls Roger lib
+  This module provides all required APIs for Roger lib calls. Aditionally it implements RogerUI.Roger behaviour.
   """
 
   @behaviour RogerUi.Roger
